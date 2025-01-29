@@ -43,10 +43,14 @@ function signIn() {
   const promise = auth.signInWithEmailAndPassword(
             email.value, password.value);
   promise.catch((e) => alert(e.message));
-firebase.auth().signInWithEmailAndPassword(email, password)
+
+  firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Successful sign-in, redirect to landing.html
-            window.location.href = "landing.html";
+            window.location.href = "landing.html"; })
+        .catch((error) => {
+            console.error("Error signing in: ", error.message);
+            alert(error.message);
 }
 
 // SignOut
