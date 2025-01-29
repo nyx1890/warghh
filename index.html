@@ -1,17 +1,10 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <script src=
-"https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js">
-    </script>
-
-    <script src=
-"https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js">
-    </script>
-    
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
     <script src="form.js"></script>
     <title>Simple Website</title>
     <style>
@@ -50,40 +43,29 @@
         Simple Website
     </header>
     <main>
-        <p>Welcome to my work in progress simple website..</p>
-<br>
-<p>help</p>
-<div class="formContainer">
-        <h1>Enter Credentials Here:</h1>
-<form onsubmit="return false;"> 
-        <input type="email" 
-            placeholder="email here" id="email" />
-        <br />
-        <input type="password" 
-            placeholder="password here" id="password" />
-        <br />
-        <button onclick="signUp()" id="signUp">
-            SignUp
-        </button>
-        <button onclick="signIp()" id="signUp">
-            SignIn
-        </button>
-        <button onclick="signOut()" id="signOut">
-            SignOut
-        </button>
-</form>
-        <p id="error-message" style="color: red;"></p> <!-- Error message display -->
+        <p>Welcome to my work-in-progress simple website.</p>
+        <br>
+        <p>Help</p>
+        <div class="formContainer">
+            <h1>Enter Credentials Here:</h1>
+            <form onsubmit="return false;">
+                <input type="email" placeholder="email here" id="email" required />
+                <br />
+                <input type="password" placeholder="password here" id="password" required />
+                <br />
+                <button type="button" onclick="signUp()" id="signUp">SignUp</button>
+                <button type="button" onclick="signIn()" id="signIn">SignIn</button>
+                <button type="button" onclick="signOut()" id="signOut">SignOut</button>
+                <p id="error-message" style="color: red;"></p>
+            </form>
+        </div>
 
-<!-- Button to redirect to external URL -->
-         <button class="redirect-button" onclick="window.open('http://warghh.freeddns.org/', '_blank')">Temporary Button</button>
-    
+        <!-- Button to redirect to external URL -->
+        <button class="redirect-button" onclick="window.open('http://warghh.freeddns.org/', '_blank')">Temporary Button</button>
+    </main>
 
-
-  </main>
     <footer>
         &copy; 2025 Simple Website
     </footer>
-
-   
 </body>
 </html>
