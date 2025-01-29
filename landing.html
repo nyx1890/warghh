@@ -33,24 +33,56 @@
             cursor: pointer;
             border-radius: 5px;
             text-decoration: none;
+            display: inline-block;
         }
         footer {
             margin-top: 50px;
             padding: 10px;
             background-color: #ddd;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            body {
+                margin: 20px;
+            }
+            .cta-button {
+                width: 100%;
+                padding: 10px;
+            }
         }
     </style>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="form.js"></script>
 </head>
 <body>
     <header>
         Welcome to Your New Account!
     </header>
     <main>
-        <p class="welcome-message">Congratulations, you've successfully created an account!</p>
+        <p class="welcome-message" id="welcome-message">Congratulations, you've successfully created an account!</p>
         <a href="index.html" class="cta-button">Go Back to Homepage</a>
+        <button onclick="signOut()" class="cta-button" style="margin-top: 20px;">Sign Out</button>
     </main>
     <footer>
         &copy; 2025 Simple Website
     </footer>
+    <script>
+        firebase.auth().onAuthStateChanged((user) => {
+            if (!user) {
+                window.location.href = "index.html"; // Redirect to sign-in page if not logged in
+            } else {
+                document.getElementById("welcome-message").textContent = "Welcome, " + user.email + "!";
+            }
+        });
+
+        function signOut() {
+            firebase.auth().signOut().then(() => {
+                window.location.href = "index.html";
+            }).catch((error) => {
+                console.error("Sign-out error:", error);
+            });
+        }
+    </script>
 </body>
 </html>
