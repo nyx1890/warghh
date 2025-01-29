@@ -41,16 +41,25 @@
     </header>
     <main>
         <p>Welcome to my work in progress simple website. This is a basic HTML page with some CSS styling.</p>
-
-        <!-- Account Creation Form -->
-        <h3>Create an Account</h3>
-        <form id="signup-form">
-            <input type="email" id="email" placeholder="Enter your email" required>
-            <input type="password" id="password" placeholder="Enter your password" required>
-            <button type="submit">Sign Up</button>
-        </form>
-        <div id="error-message" style="color: red; display: none;"></div>
-        <div id="success-message" style="color: green; display: none;">Account created successfully!</div>
+<div class="formContainer">
+        <h1>Enter Credentials Here:</h1>
+        <input type="email" 
+            placeholder="email here" id="email" />
+        <br />
+        <input type="password" 
+            placeholder="password here" id="password" />
+        <br />
+        <button onclick="signUp()" id="signUp">
+            SignUp
+        </button>
+        <button onclick="signIn()" id="signIp">
+            SignIn
+        </button>
+        <button onclick="signOut()" id="signOut">
+            SignOut
+        </button>
+       
+        
 
 <!-- Button to redirect to external URL -->
          <button class="redirect-button" onclick="window.open('http://warghh.freeddns.org/', '_blank')">Temporary Button</button>
