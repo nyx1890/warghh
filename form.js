@@ -52,8 +52,11 @@ function signIn() {
         .catch((error) => {
             console.error("Error signing in: ", error.message);
             alert(error.message);
-}
-
+)}
+.catch((error) => {
+            console.error("Error signing in: ", error.message);
+            errorMessage.textContent = "Error: " + error.message; // Display error in HTML
+});
 // SignOut
 function signOut() {
   auth.signOut();
