@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stupid Little Website</title>
+    <title>Simple Website</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,17 +26,65 @@
             padding: 10px;
             background-color: #ddd;
         }
+        form {
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
     <header>
-        Simple Little HTML Website
+        Simple HTML Website
     </header>
     <main>
-        <p>Welcome to my simple website. This is a a a aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa beautiful basic HTML page with some CSS styling.</p>
+        <p>Welcome to my simple website. This is a basic HTML page with some CSS styling.</p>
+
+        <!-- Account Creation Form -->
+        <h3>Create an Account</h3>
+        <form id="signup-form">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div id="error-message" style="color: red; display: none;"></div>
+        <div id="success-message" style="color: green; display: none;">Account created successfully!</div>
     </main>
     <footer>
         &copy; 2025 Simple Website
     </footer>
+
+    <script>
+        // Initialize Supabase
+        const supabaseUrl = 'https://pzajsxobgwjikwwtrybh.supabase.co'; // Replace with your Supabase URL
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6YWpzeG9iZ3dqaWt3d3RyeWJoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzgxMTM5ODEsImV4cCI6MjA1MzY4OTk4MX0.RaQMFDyq_KKfw_s7L8kjYv8CV2s_QSn5DYqoad2bYsc'; // Replace with your Supabase anon key
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        // Handle SignUp Form Submit
+        document.getElementById('signup-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Attempt to create the user
+            const { user, error } = await supabase.auth.signUp({
+                email,
+                password,
+            });
+
+            if (error) {
+                document.getElementById('error-message').innerText = error.message;
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('success-message').style.display = 'none';
+            } else {
+                document.getElementById('error-message').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
