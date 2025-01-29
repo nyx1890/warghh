@@ -55,6 +55,7 @@
 <p>help</p>
 <div class="formContainer">
         <h1>Enter Credentials Here:</h1>
+<form onsubmit="return false;"> 
         <input type="email" 
             placeholder="email here" id="email" />
         <br />
@@ -70,7 +71,7 @@
         <button onclick="signOut()" id="signOut">
             SignOut
         </button>
-       
+</form>
         <p id="error-message" style="color: red;"></p> <!-- Error message display -->
 
 <!-- Button to redirect to external URL -->
