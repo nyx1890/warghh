@@ -47,7 +47,8 @@ function signIn() {
   firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Successful sign-in, redirect to landing.html
-            window.location.href = "landing.html"; })
+            window.location.href = "landing.html";
+        })
         .catch((error) => {
             console.error("Error signing in: ", error.message);
             alert(error.message);
