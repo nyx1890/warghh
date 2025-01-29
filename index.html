@@ -59,8 +59,8 @@
 
     <script>
         // Initialize Supabase
-        const supabaseUrl = 'https://pzajsxobgwjikwwtrybh.supabase.co'; // Replace with your Supabase URL
-        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6YWpzeG9iZ3dqaWt3d3RyeWJoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzgxMTM5ODEsImV4cCI6MjA1MzY4OTk4MX0.RaQMFDyq_KKfw_s7L8kjYv8CV2s_QSn5DYqoad2bYsc'; // Replace with your Supabase anon key
+        const supabaseUrl = 'YOUR_SUPABASE_URL'; // Replace with your Supabase URL
+        const supabaseKey = 'YOUR_SUPABASE_ANON_KEY'; // Replace with your Supabase anon key
         const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
         // Handle SignUp Form Submit
@@ -83,6 +83,11 @@
             } else {
                 document.getElementById('error-message').style.display = 'none';
                 document.getElementById('success-message').style.display = 'block';
+
+                // Redirect to the landing page after successful sign-up
+                setTimeout(() => {
+                    window.location.href = 'landing.html'; // Redirect to the landing page
+                }, 2000); // Wait for 2 seconds before redirect
             }
         });
     </script>
