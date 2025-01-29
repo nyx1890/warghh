@@ -11,6 +11,10 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+console.log("Firebase Loaded:", firebase);
+console.log("Firebase Auth Loaded:", firebase.auth);
+console.log("Firebase Config:", firebase.apps.length > 0 ? "Initialized" : "Not Initialized");
+
 const auth = firebase.auth();
 
 // Signup function
